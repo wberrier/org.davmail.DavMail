@@ -27,11 +27,40 @@
     "sed -i 's,Icon=.*,Icon=org.davmail.DavMail,g' /app/share/applications/org.davmail.DavMail.desktop"
   ],
   "modules": [
+    /* TODO: put in openjfk11.json */
+    /* TODO: put gradle deps in another git repo to cache */
     {
       "name": "openjdk",
       "buildsystem": "simple",
       "build-commands": [
         "/usr/lib/sdk/openjdk11/install.sh"
+      ]
+    },
+    "shared-modules/gtk2/gtk2.json",
+    {
+      "name": "openjfx",
+      "buildsystem": "simple",
+      "build-commands": [
+        "unzip openjfx-gradle-deps.zip -d /",
+        "find /tmp/gradle",
+        "gradle/bin/gradle  --gradle-user-home /tmp/gradle --project-cache-dir /tmp/gradle-project"
+      ],
+      "sources" : [
+        {
+          "type": "archive",
+          "url": "http://hg.openjdk.java.net/openjfx/11-dev/rt/archive/11.0.1+1.tar.bz2",
+          "sha256": "b60bf7ea6f77a854a75e8235a96b9ea067029b8fc35dcece032a02b028447169"
+        },
+        {
+          "type": "archive",
+          "url": "https://services.gradle.org/distributions/gradle-4.10.3-bin.zip",
+          "sha256": "8626cbf206b4e201ade7b87779090690447054bc93f052954c78480fa6ed186e",
+          "dest": "gradle"
+        },
+        {
+          "type": "file",
+          "path": "openjfx-gradle-deps.zip"
+        }
       ]
     },
     {
