@@ -1,6 +1,5 @@
-diff -ur davmail-src-5.5.0-3293.orig/src/appstream/org.davmail.DavMail.appdata.xml davmail-src-5.5.0-3293/src/appstream/org.davmail.DavMail.appdata.xml
---- davmail-src-5.5.0-3293.orig/src/appstream/org.davmail.DavMail.appdata.xml	2020-04-15 13:59:52.000000000 -0600
-+++ davmail-src-5.5.0-3293/src/appstream/org.davmail.DavMail.appdata.xml	2020-04-17 11:35:10.503476651 -0600
+--- davmail-src-5.5.1-3299.orig/src/appstream/org.davmail.DavMail.appdata.xml	2020-04-19 03:23:16.000000000 -0600
++++ davmail-src-5.5.1-3299/src/appstream/org.davmail.DavMail.appdata.xml	2020-04-25 09:24:15.736067831 -0600
 @@ -5,26 +5,8 @@
    <metadata_license>CC0-1.0</metadata_license>
    <summary>DavMail POP/IMAP/SMTP/Caldav/Carddav/LDAP Exchange Gateway</summary>
@@ -30,7 +29,49 @@ diff -ur davmail-src-5.5.0-3293.orig/src/appstream/org.davmail.DavMail.appdata.x
      </p>
    </description>
    <url type="homepage">http://davmail.sourceforge.net</url>
-@@ -48,160 +30,6 @@
+@@ -41,21 +23,26 @@
+   <releases>
+       <release version="5.5.1" date="2019-04-19">
+       <description>
+-          <p>
+-              Fix regression on domain\username authentication over IMAP and some cleanup
+-
+-              ### IMAP:
+-              - IMAP: fix https://github.com/mguessan/davmail/issues/100 regression with domain\username authentication
+-
+-              ### O365:
+-              - O365: set jdk.http.ntlm.transparentAuth=allHosts to enable NTLM for ADFS support
+-
+-              ### Build:
+-              - dist cleanup
+-              - Update release guide with Fedora copr instructions
+-              - Exclude .sonarwork from source package
+-              - Build: fix release file name
+-          </p>
++          <p>Fix regression on domain\username authentication over IMAP and some cleanup</p>
++          <p>IMAP</p>
++          <ul>
++            <li>fix github issue #100 regression with domain\username
++            authentication</li>
++          </ul>
++
++          <p>O365</p>
++          <ul>
++            <li>set jdk.http.ntlm.transparentAuth=allHosts to enable
++            NTLM for ADFS support</li>
++          </ul>
++
++          <p>Build</p>
++          <ul>
++            <li>dist cleanup</li>
++            <li>Update release guide with Fedora copr instructions</li>
++            <li>Exclude .sonarwork from source package</li>
++            <li>Build: fix release file name</li>
++          </ul>
+       </description>
+       </release>
+       <release version="5.5.0" date="2019-04-15">
+@@ -67,160 +54,6 @@
              Notable changes for end users are Oauth token persistence to avoid frequent O365 authentications and OIDC support for
              personal outlook accounts.
              Known issues: some users reported regressions with form authentication, please report such regressions with log files.
