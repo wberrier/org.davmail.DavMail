@@ -56,7 +56,7 @@
         },
         {
           "type": "patch",
-          "path": "0001-Show-main-window-on-Fedora-Gnome.patch"
+          "path": "0001-Linux-Gnome-Desktop-fix-systray-support.patch"
         },
         {
           "type": "patch",
